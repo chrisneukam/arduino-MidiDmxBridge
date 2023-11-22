@@ -1,0 +1,3 @@
+# See: https://github.com/codespell-project/codespell
+[codespell]
+skip = ./.git,./.vscode,./build,./kicad
