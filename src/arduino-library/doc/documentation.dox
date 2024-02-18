@@ -1,0 +1,62 @@
+/**
+\mainpage MidiDmxBridge - A Brief Description
+\section introduction Introduction
+
+This project provides a software solution implemented in C++ and compatible with the Arduino compiler. It
+comprises interpreting the MIDI CC bytes and providing the DMX values at the output. The MIDI CC controller
+byte is translated to the DMX channel, and the MIDI CC value is translated to the channel-specific DMX value.
+
+\section license License
+
+This library is released under the Apache V2.0 License. See [LICENSE](https://github.com/chrisneukam/arduino-MidiDmxBridge/blob/main/LICENSE) for more information.
+
+\copyright Copyright 2023 - 2024 Christian Neukam. All rights reserved.
+
+\page midi_dmx_translation MIDI/DMX translation
+\section midi_protocol MIDI transport protocol
+
+MIDI (Musical Instrument Digital Interface) is a protocol used for transmitting digital data between electronic
+musical instruments, computers, and other devices. MIDI messages are sent over a 5-pin DIN cable or USB cable.
+The MIDI protocol includes several types of messages, including note on/off messages, program change messages,
+and continuous controller (CC) messages. CC messages are used to control various parameters of a synthesizer or
+other MIDI device. Each CC message consists of three bytes: a status byte, a controller number byte, and a value
+byte. The status byte always has a value of 0xB0 (176 in decimal) for CC messages. The controller number byte
+specifies which parameter is being controlled, and the value byte specifies the value of the parameter.
+
+\section dmx_protocol DMX protocol
+
+DMX (Digital Multiplex) is a protocol used for controlling lighting equipment such as dimmers, moving lights, and
+LED fixtures. DMX messages are sent over a standard XLR cable with 5 pins. Each DMX message consists of a start
+code byte, followed by a series of data bytes. The start code byte always has a value of 0x00 (0 in decimal). The
+data bytes specify the values of the various channels of the DMX universe. Each channel can have a value between 0
+and 255.
+
+\section midi_to_dmx MIDI CC to DMX translation
+
+To translate MIDI CC messages to DMX signals, the software responds to MIDI continuous controller messages to generate
+DMX output. A single (user selectable) MIDI Channel is monitored. The system watches for `MIDI CC` messages related
+to that channel. Since there a total of 128 values in a `MIDI CC` controller byte, the system outputs 128 channels of
+DMX. The 7-bit [0 127] `MIDI CC` value is doubled to make an 8 bit [0 255] DMX channel value. A `MIDI CC` message with
+zero value clears the channel.
+*/
+/**
+\namespace mididmxbridge
+\brief This namespace defines the scope of the \p MidiDmxBridge library.
+\details It contains all classes, functions and symbols that are available both publicly and privately.
+*/
+/**
+\namespace mididmxbridge::dmx
+\brief This namespace bundles all entities of the \p MidiDmxBridge library that relate to DMX output.
+*/
+/**
+\namespace mididmxbridge::midi
+\brief This namespace bundles all entities of the \p MidiDmxBridge library that relate to MIDI input.
+*/
+/**
+\namespace mididmxbridge::util
+\brief This namespace bundles all entities of the \p MidiDmxBridge library that provide utility functionalities.
+*/
+/**
+\namespace mididmxbridge::unittest
+@brief This namespace bundles all components that are required for the execution of unit tests of the \p MidiDmxBridge library.
+*/

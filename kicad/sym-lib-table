@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "j_ProcessorBoards")(type "KiCad")(uri "${KIPRJMOD}/j_ProcessorBoards.kicad_sym")(options "")(descr ""))
+)
