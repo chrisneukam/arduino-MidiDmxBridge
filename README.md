@@ -7,6 +7,24 @@
 
 The `MIDI-DMX Bridge` is an Arduino-based hardware and software solution that converts MIDI Continuous Controller signals to DMX commands. The project consists of a hardware schematic and PCB designed using KiCad, an Arduino sketch, and an Arduino library. It can be used to control DMX fixtures such as lights, fog machines, and more.
 
+## Lightning Fixture Compatibility
+
+The `MIDI-DMX Bridge` Arduino project is designed to seamlessly integrate with the lighting fixtures *Stairville CLB4 RGB Compact LED Bar 4* and two *Stairville LED Flood Panel 150*. Here's how the bridge supports these fixtures:
+
+1. **Stairville CLB4 RGB Compact LED Bar 4**:
+    - This LED bar operates in the 14-channel DMX mode, the start address 1.
+    - Each of its four individual LED spots can be controlled independently using the MIDI-DMX Bridge.
+    - Adjust colors, intensity, and effects with precision.
+    - Perfect for creating dynamic lighting displays in various settings.
+
+2. **Stairville LED Flood Panel 150**:
+    - The LED Flood Panel operates in the 4-channel DMX mode, the start addresses are 15 and 19.
+    - Use the MIDI-DMX Bridge to orchestrate its 150 LEDs for wide-area illumination.
+    - Whether it’s stage lighting, architectural displays, or events, this panel delivers impressive results.
+
+
+Remember to consult the user manuals for both fixtures to configure the MIDI-DMX Bridge effectively. Enjoy your creative lighting setups! 🌟
+
 ## Hardware Schematic
 
 The hardware schematic for this project was designed using KiCad. The schematic includes the following components:

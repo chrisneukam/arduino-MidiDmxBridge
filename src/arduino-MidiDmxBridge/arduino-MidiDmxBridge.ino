@@ -70,9 +70,10 @@ void setup() {
   pinMode(kButtonPin, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
 
-  uint8_t r[5] = {1, 4, 7, 10, 15};  // DMX channels of red LEDs
-  uint8_t g[5] = {2, 5, 8, 11, 16};  // DMX channels of green LEDs
-  uint8_t b[5] = {3, 6, 9, 12, 17};  // DMX channels of blue LEDs
+  uint8_t r[6] = {1, 4, 7, 10, 16, 20};  // DMX channels of the red LEDs
+  uint8_t g[6] = {2, 5, 8, 11, 17, 21};  // DMX channels of the green LEDs
+  uint8_t b[6] = {3, 6, 9, 12, 18, 22};  // DMX channels of the blue LEDs
+  uint8_t d[3] = {14, 15, 19};           // DMX channels of the dimmers
 
 #ifdef USBSerial
   Serial.begin(9600);  // print info on the serial monitor, USB only
@@ -80,7 +81,8 @@ void setup() {
   DMXSerial.init(DMXController);
   DMXSerial.maxChannel(128);
   MDXBridge.begin();
-  MDXBridge.setStaticScene({{5, r}, {5, g}, {5, b}}, {0xff, 0xf8, 0xa7});
+  MDXBridge.setStaticScene({{6, r}, {6, g}, {6, b}}, {0xff, 0xf8, 0xa7});
+  MDXBridge.setStaticScene({{3, d}, {}, {}}, {0xff, 0x00, 0x00});
 }
 
 /**
